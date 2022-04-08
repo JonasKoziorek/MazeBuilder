@@ -2,6 +2,10 @@
 #include "SVG.h"
 #include "AdList.h"
 
+/** Enum of possible directions.
+ * In code this enums is used this way:
+ * South means neigboring Cell to the south of a current Cell etc.
+ */
 enum Direction{
     South,
     West, 
