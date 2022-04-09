@@ -7,9 +7,9 @@ using namespace std;
 
 int main(){
     // height of a maze
-    const int m = 4;
+    const int m = 3;
     // width of a maze
-    const int n = 4;
+    const int n = 3;
     srand(time(0));
     SVG svg = {"maze.html", n, m};
     Grid grid = {n, m};

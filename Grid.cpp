@@ -36,34 +36,35 @@ AdList Grid::CreateGraph(){
     // create adjacency list for grid of interconnected cells 
     int n = this->width;
     int m = this->height;
-    vector<vector<int>> adlist(m*n, vector<int>());
+    cout << m << endl << n << endl;
+    vector<vector<int>> adlist(n*m, vector<int>());
     for(int i = 1; i < m-1; i++){
         // interior cells
         for(int j = 1; j < n-1; j++){
             vector<int> temp = {this->FormatIndex(i+1, j),this->FormatIndex(i-1, j),this->FormatIndex(i, j+1),this->FormatIndex(i, j-1)};
-            adlist[i * m + j] = temp;
+            adlist[i * n + j] = temp;
         }
         // vertical borders
         vector<int> temp1 = {this->FormatIndex(i+1, 0),this->FormatIndex(i-1, 0),this->FormatIndex(i, 1)};
-        adlist[i * m] = temp1;
+        adlist[i * n] = temp1;
         vector<int> temp2 = {this->FormatIndex(i+1, n-1),this->FormatIndex(i-1, n-1),this->FormatIndex(i, n-2)};
-        adlist[i * m +n-1] = temp2;
+        adlist[i * n +n-1] = temp2;
     }
     // horizontal borders
     for(int j = 1; j < n-1; j++){
         vector<int> temp1 = {this->FormatIndex(1, j),this->FormatIndex(0, j-1), this->FormatIndex(0, j+1)};
         adlist[j] = temp1;
         vector<int> temp2 = {this->FormatIndex(m-2, j),this->FormatIndex(m-1, j-1), this->FormatIndex(m-1, j+1)};
-        adlist[(m-1)*m + n-1] = temp2;
+        adlist[(m-1)*n + n-1] = temp2;
     }
     // top left corner
     adlist[0] = {this->FormatIndex(1, 0),this->FormatIndex(0, 1)};
     // top right corner
     adlist[n-1] = {this->FormatIndex(0, n-2),this->FormatIndex(1, n-1)};
     // bottom leff corner
-    adlist[(m-1)*m] = {this->FormatIndex(m-2, 0),this->FormatIndex(m-1, 1)};
+    adlist[(m-1)*(n-1)] = {this->FormatIndex(m-2, 0),this->FormatIndex(m-1, 1)};
     // bottom right corner
-    adlist[(m-1)*m + n-1] = {this->FormatIndex(m-1, n-2),this->FormatIndex(m-2, n-1)};
+    adlist[(m-1)*(n-1) + n-1] = {this->FormatIndex(m-1, n-2),this->FormatIndex(m-2, n-1)};
 
     AdList adl = {adlist};
     return adl;
