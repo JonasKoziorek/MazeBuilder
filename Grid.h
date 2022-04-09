@@ -13,10 +13,10 @@ enum Direction{
     East
 };
 
+/**
+ * @brief Grid class represents grid of rectangular cells.
+ */
 class Grid{
-    /**
-     * @brief Grid class represents grid of rectangular cells.
-     */
     public:
         /**
          * A constructor for Grid.

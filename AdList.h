@@ -4,12 +4,17 @@
 
 using namespace std;
 
-// adjacency list
+/** Simple Adjacency List (AdList) class.
+ */
 class AdList{
     private:
-        vector<vector<int>> data; /** i-th element corresponds to all vertices adjacent to i-th vertex */
+        /** i-th element corresponds to all vertices adjacent to i-th vertex 
+         */
+        vector<vector<int>> data;    
     public:
         vector<int> GetAdjacent(int v);
+        /** size of this->data
+         */
         int GetSize();
         AdList(vector<vector<int>> data);
 };

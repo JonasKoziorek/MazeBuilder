@@ -40,9 +40,8 @@ void DFS::ProcessDiscoveredVertex(int u){
 }
 
 void DFS::ProcessCurrentVertex(int u){
-    auto stack = &this->to_be_processed;
     this->verts.at(u) = State::finished;
-    stack->pop();
+    this->to_be_processed.pop();
 }
 
 vector<int> DFS::Run(int starting_vertex){
