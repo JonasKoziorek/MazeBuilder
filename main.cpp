@@ -7,14 +7,14 @@ using namespace std;
 
 int main(){
     // height of a maze
-    const int m = 3;
+    const int m = 12;
     // width of a maze
-    const int n = 3;
+    const int n = 25;
     srand(time(0));
     SVG svg = {"maze.html", n, m};
     Grid grid = {n, m};
     AdList ad = grid.CreateGraph();
     DFS dfs = DFS(&ad);
-    grid.CreateMaze(&svg, dfs.Run(0) );
+    grid.CreateMaze(&svg, dfs.Run(rand() % m*n) );
     return 0;
 }

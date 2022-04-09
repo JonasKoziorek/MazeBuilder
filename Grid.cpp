@@ -36,7 +36,6 @@ AdList Grid::CreateGraph(){
     // create adjacency list for grid of interconnected cells 
     int n = this->width;
     int m = this->height;
-    cout << m << endl << n << endl;
     vector<vector<int>> adlist(n*m, vector<int>());
     for(int i = 1; i < m-1; i++){
         // interior cells
@@ -62,9 +61,9 @@ AdList Grid::CreateGraph(){
     // top right corner
     adlist[n-1] = {this->FormatIndex(0, n-2),this->FormatIndex(1, n-1)};
     // bottom leff corner
-    adlist[(m-1)*(n-1)] = {this->FormatIndex(m-2, 0),this->FormatIndex(m-1, 1)};
+    adlist[(m-1)*n] = {this->FormatIndex(m-2, 0),this->FormatIndex(m-1, 1)};
     // bottom right corner
-    adlist[(m-1)*(n-1) + n-1] = {this->FormatIndex(m-1, n-2),this->FormatIndex(m-2, n-1)};
+    adlist[(m-1)*n + n-1] = {this->FormatIndex(m-1, n-2),this->FormatIndex(m-2, n-1)};
 
     AdList adl = {adlist};
     return adl;
